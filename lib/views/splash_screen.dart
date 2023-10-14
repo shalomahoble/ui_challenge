@@ -37,12 +37,16 @@ class _SplashScreenState extends State<SplashScreen> {
     _pageController.addListener(() {
       if (_pageController.page == imageList.length - 1) {
         setState(() {
-          started = !started;
+          started = true;
+        });
+      } else {
+        setState(() {
+          started = false;
         });
       }
     });
     _pageController.nextPage(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 1),
       curve: Curves.easeIn,
     );
   }
