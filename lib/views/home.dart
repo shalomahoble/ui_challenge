@@ -26,19 +26,41 @@ class _HomeState extends State<Home> {
             const SearchBare(),
             SizedBox(
               height: SizeConfig.blockVertical! * 78,
-              child: MasonryGridView.builder(
-                physics: const ScrollPhysics(),
-                gridDelegate:
-                    const SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                ),
-                itemCount: products.length,
-                itemBuilder: (context, index) {
+              child: StaggeredGridView.countBuilder(
+                crossAxisCount: 6,
+                itemCount: 8,
+                itemBuilder: (BuildContext context, int index) {
                   return ProductCard(
                     product: products[index],
                   );
                 },
+                staggeredTileBuilder: (int index) =>
+                    StaggeredTile.count(3, index.isEven ? 5 : 4),
+                mainAxisSpacing: 6.0,
+                crossAxisSpacing: 6.0,
               ),
+
+              // child: MasonryGridView.builder(
+              //   gridDelegate:
+              //       StaggeredGrid.count(crossAxisCount: crossAxisCount),
+              //   itemBuilder: (context, index) {
+              //     return Text("data");
+              //   },
+              // ),
+              // child: MasonryGridView.builder(
+              //   physics: const ScrollPhysics(),
+
+              //   gridDelegate:
+              //       const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+              //     crossAxisCount: 2,
+              //   ),
+              //   itemCount: products.length,
+              //   itemBuilder: (context, index) {
+              //     return ProductCard(
+              //       product: products[index],
+              //     );
+              //   },
+              // ),
             ),
           ],
         ),

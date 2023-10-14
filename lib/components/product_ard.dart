@@ -34,7 +34,7 @@ class ProductCard extends StatelessWidget {
         height: SizeConfig.blockHorizontal! * 60,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(25),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
