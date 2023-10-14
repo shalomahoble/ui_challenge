@@ -29,7 +29,7 @@ class ProductCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => goToDetailSreen(),
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         padding: const EdgeInsets.symmetric(horizontal: 15),
         height: SizeConfig.blockHorizontal! * 60,
         decoration: BoxDecoration(
@@ -37,6 +37,7 @@ class ProductCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
               product.image,
@@ -48,10 +49,12 @@ class ProductCard extends StatelessWidget {
               children: [
                 Text("\$ ${product.price}", style: priceStyle),
                 const CircleAvatar(
+                  radius: 17,
                   backgroundColor: Colors.black,
                   child: Icon(
                     Icons.favorite,
                     color: Colors.white,
+                    size: 20,
                   ),
                 )
               ],
